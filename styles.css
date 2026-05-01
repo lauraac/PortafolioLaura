@@ -824,15 +824,22 @@ footer {
 }
 
 .phone-frame {
-  width: 330px;
-  height: 690px;
-  padding: 14px;
-  border-radius: 44px;
+  width: 100%;
+  max-width: 330px;
+
+  height: 90vh; /* 🔥 clave */
+  max-height: 640px; /* límite */
+
+  padding: 12px;
+  border-radius: 40px;
   background: linear-gradient(145deg, #111827, #020617);
   border: 2px solid rgba(255, 255, 255, 0.2);
+
   box-shadow:
-    0 0 45px rgba(255, 0, 127, 0.5),
-    0 0 90px rgba(34, 211, 238, 0.25);
+    0 0 40px rgba(255, 0, 127, 0.4),
+    0 0 80px rgba(34, 211, 238, 0.2);
+
+  margin: auto;
 }
 
 .notch {
@@ -846,13 +853,17 @@ footer {
 
 #tetris {
   width: 100%;
-  height: calc(100% - 40px);
+  height: calc(100% - 40px); /* se adapta al celular */
   border-radius: 26px;
   background: linear-gradient(180deg, #083d8f 0%, #0ea5e9 45%, #020617 100%);
   border: 1px solid rgba(255, 255, 255, 0.18);
   box-shadow: inset 0 0 35px rgba(255, 255, 255, 0.12);
 }
-
+#juego {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
 .game-info {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -952,11 +963,15 @@ footer {
 
 @media (max-width: 480px) {
   .phone-frame {
-    width: 280px;
-    height: 590px;
+    height: 75vh; /* 🔥 más compacto */
+    max-height: none;
   }
 
   .game-card {
-    padding: 18px;
+    padding: 16px;
+  }
+
+  .tetris-title {
+    font-size: 38px;
   }
 }
