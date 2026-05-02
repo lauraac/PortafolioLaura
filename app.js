@@ -397,7 +397,53 @@ if (tetrisCanvas) {
       if (diffY > 30) playerDrop();
     }
   });
+  let touchStartX = 0;
+  let touchStartY = 0;
 
+  const SWIPE_THRESHOLD = 30;
+
+  tetrisCanvas.addEventListener("touchstart", (e) => {
+    const touch = e.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  });
+
+  tetrisCanvas.addEventListener("touchmove", (e) => {
+    if (!playing) return;
+
+    const touch = e.touches[0];
+    const dx = touch.clientX - touchStartX;
+    const dy = touch.clientY - touchStartY;
+
+    // 👉 IZQUIERDA / DERECHA
+    if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
+      if (dx > 0) {
+        playerMove(1);
+      } else {
+        playerMove(-1);
+      }
+      touchStartX = touch.clientX;
+    }
+
+    // 🔥 ABAJO = BAJAR RÁPIDO (SOFT DROP)
+    if (dy > SWIPE_THRESHOLD && Math.abs(dy) > Math.abs(dx)) {
+      playerDrop(); // baja una fila rápido
+      touchStartY = touch.clientY;
+    }
+  });
+
+  tetrisCanvas.addEventListener("touchend", (e) => {
+    if (!playing) return;
+
+    const touch = e.changedTouches[0];
+    const dx = touch.clientX - touchStartX;
+    const dy = touch.clientY - touchStartY;
+
+    // 👉 TAP = ROTAR
+    if (Math.abs(dx) < 10 && Math.abs(dy) < 10) {
+      playerRotate();
+    }
+  });
   window.addEventListener("keydown", (event) => {
     if (!playing) return;
 
