@@ -450,68 +450,87 @@ a {
   font-weight: 900;
 }
 
-/* TETRIS */
-.game-section {
+/.game-section {
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  padding: 80px 6% 35px;
+}
+
+.game-section .section-title {
+  margin-bottom: 18px;
+}
+
+.game-section .section-title h2 {
+  font-size: clamp(26px, 4vw, 42px);
 }
 
 .game-card {
   width: 100%;
-  max-width: 500px;
-  margin: auto;
-  padding: 24px;
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  text-align: center;
-  box-shadow:
-    0 0 40px rgba(255, 0, 127, 0.22),
-    0 0 80px rgba(34, 211, 238, 0.1);
+  max-width: 430px;
+  padding: 16px;
 }
 
 .tetris-title {
-  font-size: clamp(42px, 8vw, 66px);
-  font-weight: 900;
-  letter-spacing: 4px;
-  margin-bottom: 10px;
+  font-size: clamp(34px, 7vw, 52px);
+  margin-bottom: 4px;
 }
 
-.tetris-title span {
-  display: inline-block;
-  animation: bounce 0.9s infinite alternate;
+.game-intro {
+  font-size: 13px;
+  margin-bottom: 8px;
 }
 
-.tetris-title span:nth-child(1) {
-  color: #ff3b3b;
-}
-.tetris-title span:nth-child(2) {
-  color: #ff9f1c;
-  animation-delay: 0.1s;
-}
-.tetris-title span:nth-child(3) {
-  color: #ffe600;
-  animation-delay: 0.2s;
-}
-.tetris-title span:nth-child(4) {
-  color: #39ff14;
-  animation-delay: 0.3s;
-}
-.tetris-title span:nth-child(5) {
-  color: #00d9ff;
-  animation-delay: 0.4s;
-}
-.tetris-title span:nth-child(6) {
-  color: #ff2bd6;
-  animation-delay: 0.5s;
+.phone-game {
+  margin-top: 10px;
 }
 
-.game-intro,
+.phone-frame {
+  width: min(255px, 76vw);
+  height: min(455px, 55vh);
+  min-height: 380px;
+  padding: 9px;
+}
+
+#tetris {
+  touch-action: none;
+  cursor: pointer;
+}
+
+.game-info {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  margin-top: 10px;
+}
+
+.game-info div {
+  padding: 7px 4px;
+  border-radius: 13px;
+}
+
+.game-info span {
+  font-size: 15px;
+}
+
+.game-info small {
+  font-size: 10px;
+}
+
+.game-controls {
+  margin-top: 10px;
+}
+
+.start-btn {
+  max-width: 190px;
+  padding: 11px 18px;
+  margin-bottom: 8px;
+}
+
 .game-note {
-  color: var(--muted);
-  line-height: 1.5;
-  font-size: 14px;
+  font-size: 12px;
+  margin-top: 8px;
 }
 
 .phone-game {
@@ -855,5 +874,51 @@ footer {
   .phone-frame {
     height: 455px;
     min-height: 455px;
+  }
+}
+@media (max-width: 760px) {
+  .game-section {
+    padding: 72px 4% 25px;
+  }
+
+  .game-section .section-title p {
+    font-size: 12px;
+  }
+
+  .game-section .section-title h2 {
+    font-size: 24px;
+  }
+
+  .game-card {
+    max-width: 360px;
+    padding: 14px;
+  }
+
+  .tetris-title {
+    font-size: 34px;
+    letter-spacing: 2px;
+  }
+
+  .game-intro {
+    font-size: 12px;
+  }
+
+  .phone-frame {
+    width: 235px;
+    height: 390px;
+    min-height: 390px;
+  }
+
+  .control-pad {
+    display: none;
+  }
+
+  .start-btn {
+    margin-bottom: 0;
+  }
+
+  .game-note::after {
+    content: " Toca el tablero para girar. Desliza para mover.";
+    color: #ff9acb;
   }
 }

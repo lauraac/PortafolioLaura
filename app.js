@@ -362,6 +362,41 @@ if (tetrisCanvas) {
     .getElementById("rotateTetris")
     ?.addEventListener("click", playerRotate);
   document.getElementById("downTetris")?.addEventListener("click", playerDrop);
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchStartTime = 0;
+
+  tetrisCanvas.addEventListener("touchstart", (event) => {
+    if (!playing) return;
+
+    const touch = event.touches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    touchStartTime = Date.now();
+  });
+
+  tetrisCanvas.addEventListener("touchend", (event) => {
+    if (!playing) return;
+
+    const touch = event.changedTouches[0];
+    const diffX = touch.clientX - touchStartX;
+    const diffY = touch.clientY - touchStartY;
+    const elapsed = Date.now() - touchStartTime;
+
+    const isTap = Math.abs(diffX) < 25 && Math.abs(diffY) < 25 && elapsed < 350;
+
+    if (isTap) {
+      playerRotate();
+      return;
+    }
+
+    if (Math.abs(diffX) > Math.abs(diffY)) {
+      if (diffX > 30) playerMove(1);
+      if (diffX < -30) playerMove(-1);
+    } else {
+      if (diffY > 30) playerDrop();
+    }
+  });
 
   window.addEventListener("keydown", (event) => {
     if (!playing) return;
