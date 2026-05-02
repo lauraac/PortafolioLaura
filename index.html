@@ -4,377 +4,422 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Preview para WhatsApp / LinkedIn / Facebook -->
+
+  <title>Laura Alfonso | Mobile Developer SR</title>
+
   <meta property="og:title" content="Laura Alfonso | Mobile Developer SR" />
   <meta property="og:description"
-    content="Desarrolladora Mobile SR especializada en Android, Kotlin, React Native, Android TV, APIs REST, Jetpack Compose y soluciones digitales inteligentes." />
+    content="Desarrolladora Mobile SR especializada en Android, Kotlin, React Native, Android TV, APIs REST, Jetpack Compose y soluciones digitales." />
   <meta property="og:image" content="https://lauraac.github.io/PortafolioLau14/assets/preview.jpg" />
   <meta property="og:url" content="https://lauraac.github.io/PortafolioLau14/" />
   <meta property="og:type" content="website" />
 
-  <!-- Preview para Twitter / X -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Laura Alfonso | Mobile Developer SR" />
   <meta name="twitter:description"
     content="Android · Kotlin · React Native · Android TV · APIs · IA aplicada · Productos digitales." />
   <meta name="twitter:image" content="https://lauraac.github.io/PortafolioLau14/assets/preview.jpg" />
-  <title>Laura Alfonso | Mobile Developer SR</title>
+
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap"
-    rel="stylesheet">
+    rel="stylesheet" />
 </head>
 
 <body>
-
   <header class="header">
-    <div class="logo">Laura<span> Alfonso</span></div>
-    <button class="menu-btn" id="menuBtn">☰</button>
+    <a href="#inicio" class="logo">Laura<span> Alfonso</span></a>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button>
 
     <nav class="nav" id="nav">
       <a href="#inicio">Inicio</a>
-      <a href="#experiencia">Experiencia</a>
-      <a href="#ia">IA + Mobile</a>
-      <a href="#proyectos">Proyectos</a>
-      <a href="#skills">Skills</a>
-      <a href="#contacto">Contacto</a>
       <a href="#impacto">Impacto</a>
+      <a href="#experiencia">Experiencia</a>
+      <a href="#skills">Skills</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#formacion">Formación</a>
       <a href="#juego">Tetris</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
-  <section class="hero" id="inicio">
-    <div class="hero-info reveal">
-      <p class="tag">Mobile Developer SR · Android · React Native · Android TV · IA</p>
 
-      <h1>
-        Construyo apps móviles
-        <span>modernas, inteligentes y escalables</span>
-      </h1>
+  <main>
+    <!-- HERO VIDEO -->
+    <section class="hero-video" id="inicio">
+      <video autoplay muted loop playsinline class="hero-video-bg">
+        <source src="assets/models/img/lau.mp4" type="video/mp4" />
+      </video>
 
-      <p class="hero-text">
-        Soy Laura Alfonso, Desarrolladora Mobile SR con experiencia en Android, Kotlin,
-        Jetpack Compose, XML, React Native, APIs REST, Firebase, Android TV y soluciones
-        para control de dispositivos.
-      </p>
+      <video autoplay muted loop playsinline class="hero-video-main">
+        <source src="assets/models/img/lau.mp4" type="video/mp4" />
+      </video>
 
-      <div class="hero-actions">
-        <a href="#proyectos" class="btn primary">Ver mi trabajo</a>
-        <a href="#contacto" class="btn secondary">Contactarme</a>
-      </div>
-    </div>
+      <div class="hero-video-shadow"></div>
 
-    <div class="hero-profile reveal">
-      <div class="photo-card">
-        <img src="assets/lau.png" alt="Foto de Laura Alfonso" />
-      </div>
+      <div class="video-overlay reveal">
+        <p class="tag">Mobile Developer SR · Android · React Native · Android TV · IA</p>
 
-      <div class="phone">
-        <div class="phone-screen">
-          <div class="camera"></div>
-          <div class="notification">
-            <strong>🔔 Push Notification</strong>
-            <p>App inteligente conectada a servicios móviles.</p>
-          </div>
-          <div class="ai-card">
-            <p>🤖 IA + Mobile</p>
-            <h3>Kotlin · Compose · APIs · TV</h3>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section dark" id="impacto">
-    <div class="section-title reveal">
-      <p>Impacto profesional</p>
-      <h2>Soluciones reales en producción</h2>
-    </div>
+        <h1>
+          Desarrolladora <span>Mobile SR</span><br />
+          creando soluciones<br />
+          con tecnología
+        </h1>
 
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <h3>📱 Apps productivas</h3>
-        <p>Desarrollo y mantenimiento de funcionalidades móviles usadas por clientes reales.</p>
-      </div>
-
-      <div class="project-card reveal">
-        <h3>📺 Android TV</h3>
-        <p>Implementación de flujos de bloqueo, desbloqueo, estados remotos y control de dispositivos.</p>
-      </div>
-
-      <div class="project-card reveal">
-        <h3>🔔 Notificaciones</h3>
-        <p>Integración de servicios móviles, comunicación con backend y experiencias conectadas.</p>
-      </div>
-    </div>
-  </section>
-  <section class="section" id="experiencia">
-    <div class="section-title reveal">
-      <p>Trayectoria profesional</p>
-      <h2>Experiencia que aporta valor real</h2>
-    </div>
-
-    <div class="timeline">
-
-      <div class="job-card reveal">
-        <span class="date">Ago. 2024 - Actualidad</span>
-        <h3>Macropay · Mérida, Yucatán</h3>
-        <h4>Engineer Mobile SR</h4>
-        <ul>
-          <li>Desarrollo de aplicaciones móviles Android con Kotlin.</li>
-          <li>Creación de interfaces modernas con Jetpack Compose y XML.</li>
-          <li>Integración de APIs REST, manejo de respuestas JSON y validaciones.</li>
-          <li>Implementación de flujos para apps móviles y Android TV.</li>
-          <li>Trabajo con control de dispositivos, bloqueos, desbloqueos y estados remotos.</li>
-          <li>Soporte a incidencias, análisis de errores y mejoras en ambientes productivos.</li>
-          <li>Uso de Git, ramas, buenas prácticas y arquitectura escalable.</li>
-        </ul>
-      </div>
-
-      <div class="job-card reveal">
-        <span class="date">Oct. 2023 - Ago. 2024</span>
-        <h3>Servifácil</h3>
-        <h4>Engineer Mobile SR</h4>
-        <ul>
-          <li>Desarrollo móvil con Android y React Native.</li>
-          <li>Integración de servicios, APIs y consumo de información en app.</li>
-          <li>Actualización de versiones para Play Store y App Store.</li>
-          <li>Mantenimiento de funcionalidades existentes.</li>
-          <li>Uso de Postman, Firebase Analytics y herramientas de monitoreo.</li>
-          <li>Manipulación de datos y soporte a procesos internos.</li>
-        </ul>
-      </div>
-
-      <div class="job-card reveal">
-        <span class="date">Jul. 2022 - Jul. 2023</span>
-        <h3>Zubale</h3>
-        <h4>Mobile Engineer</h4>
-        <ul>
-          <li>Desarrollo mobile con React Native y TypeScript.</li>
-          <li>Automatización de flujos dentro de la app.</li>
-          <li>Creación de bots y herramientas internas.</li>
-          <li>Uso de Android Studio, Flipper, MongoDB, Looker y Slack.</li>
-          <li>Soporte técnico, recuperación de usuarios y análisis de problemas.</li>
-        </ul>
-      </div>
-
-      <div class="job-card reveal">
-        <span class="date">Jun. 2020 - Jul. 2022</span>
-        <h3>Zubale</h3>
-        <h4>Command Center Analyst</h4>
-        <ul>
-          <li>Análisis de datos, soporte operativo y resolución de incidencias.</li>
-          <li>Bloqueos a usuarios fraudulentos y recuperación de códigos móviles.</li>
-          <li>Manipulación de datos y creación de tareas programadas.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <section class="section dark" id="ia">
-    <div class="section-title reveal">
-      <p>IA + Mobile</p>
-      <h2>Ideas que puedo construir</h2>
-    </div>
-
-    <div class="idea-grid">
-      <div class="idea-card reveal">🤖 <h3>Apps con IA</h3>
-        <p>Integración de asistentes inteligentes, respuestas automáticas y experiencias personalizadas.</p>
-      </div>
-      <div class="idea-card reveal">🔔 <h3>Notificaciones inteligentes</h3>
-        <p>Alertas push para usuarios, recordatorios, estados y mensajes personalizados.</p>
-      </div>
-      <div class="idea-card reveal">📺 <h3>Android TV</h3>
-        <p>Apps para televisores, control remoto, restricciones, bloqueo y desbloqueo de funciones.</p>
-      </div>
-      <div class="idea-card reveal">🎮 <h3>Mini juegos</h3>
-        <p>Creación de experiencias interactivas, juegos simples para web o móvil y dinámicas visuales.</p>
-      </div>
-      <div class="idea-card reveal">🎉 <h3>Invitaciones digitales</h3>
-        <p>Invitaciones con música, video, animaciones, formularios, confirmación y mapas.</p>
-      </div>
-      <div class="idea-card reveal">📊 <h3>Dashboards</h3>
-        <p>Visualización de datos, métricas, reportes y conexión con servicios externos.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="proyectos">
-    <div class="section-title reveal">
-      <p>Portafolio</p>
-      <h2>Proyectos destacados</h2>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card reveal">
-        <h3>📱 App Mobile Financiera</h3>
-        <p>Desarrollo de funcionalidades para app móvil con Kotlin, APIs, arquitectura escalable y buenas prácticas.</p>
-        <span>Android · Kotlin · APIs · Compose</span>
-      </div>
-
-      <div class="project-card reveal">
-        <h3>📺 Sistema Android TV</h3>
-        <p>Soluciones para bloqueo, desbloqueo, estados de dispositivo, control remoto y restricciones en televisores.
+        <p class="hero-text">
+          Especializada en Android, Kotlin, Jetpack Compose, React Native, Android TV,
+          APIs y experiencias digitales.
         </p>
-        <span>Android TV · Kotlin · MQTT · Device Control</span>
-      </div>
 
-      <div class="project-card reveal">
-        <h3>🤖 Concepto App con IA</h3>
-        <p>Prototipo visual de app inteligente con notificaciones, asistente IA y análisis de información del usuario.
+        <div class="hero-actions">
+          <a href="#proyectos" class="btn primary">🚀 Ver proyectos</a>
+          <a href="#contacto" class="btn secondary">💌 Contactarme</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="hero-intro section">
+      <div class="hero-info reveal">
+        <p class="tag">Android · Kotlin · Compose · APIs · TV</p>
+
+        <h2>
+          Construyo apps móviles
+          <span>modernas, inteligentes y escalables</span>
+        </h2>
+
+        <p>
+          Soy Laura Alfonso, Desarrolladora Mobile SR con experiencia en Android, Kotlin,
+          Jetpack Compose, XML, React Native, APIs REST, Firebase, Android TV y soluciones
+          para control de dispositivos.
         </p>
-        <span>IA · Mobile · UX · Notificaciones</span>
-      </div>
 
-      <div class="project-card reveal">
-        <h3>🎉 Invitaciones digitales</h3>
-        <p>Diseños interactivos para eventos con música, video, animación, contador, galería y confirmación de
-          asistencia.</p>
-        <span>HTML · CSS · JS · Firebase</span>
-      </div>
-
-      <div class="project-card reveal">
-        <h3>🎮 Mini juego web</h3>
-        <p>Experiencia interactiva tipo juego para demostrar creatividad, lógica y manejo de eventos en JavaScript.</p>
-        <span>JavaScript · DOM · Animaciones</span>
-      </div>
-
-      <div class="project-card reveal">
-        <h3>🔔 Sistema de notificaciones</h3>
-        <p>Concepto de envío de mensajes push para mantener informado al usuario desde una app móvil.</p>
-        <span>Firebase · Push · Mobile</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section dark" id="skills">
-    <div class="section-title reveal">
-      <p>Stack tecnológico</p>
-      <h2>Habilidades principales</h2>
-    </div>
-
-    <div class="skills-cloud reveal">
-      <span>Kotlin</span>
-      <span>Android SDK</span>
-      <span>Jetpack Compose</span>
-      <span>XML</span>
-      <span>React Native</span>
-      <span>TypeScript</span>
-      <span>JavaScript</span>
-      <span>APIs REST</span>
-      <span>JSON</span>
-      <span>Retrofit</span>
-      <span>Firebase</span>
-      <span>Push Notifications</span>
-      <span>Android TV</span>
-      <span>MQTT</span>
-      <span>Git</span>
-      <span>GitHub</span>
-      <span>Postman</span>
-      <span>MongoDB</span>
-      <span>PostgreSQL</span>
-      <span>HTML5</span>
-      <span>CSS3</span>
-      <span>Responsive Design</span>
-      <span>Figma</span>
-      <span>Looker</span>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-title reveal">
-      <p>Formación</p>
-      <h2>Educación y certificaciones</h2>
-    </div>
-
-    <div class="education-grid reveal">
-      <div>🎓 Licenciatura en Informática</div>
-      <div>🎓 Maestría en Administración y Liderazgo</div>
-      <div>📜 React Native</div>
-      <div>📜 JavaScript</div>
-      <div>📜 Python</div>
-      <div>📜 Django</div>
-      <div>📜 HTML / CSS</div>
-      <div>📜 Front-End Web Development</div>
-    </div>
-  </section>
-  <section class="section" id="formacion"></section>
-  <section class="contact" id="contacto">
-    <div class="contact-box reveal">
-      <h2>¿Quieres trabajar conmigo?</h2>
-      <p>
-        Estoy abierta a nuevas oportunidades como Mobile Developer SR,
-        especialmente en proyectos Android, React Native, Android TV,
-        APIs, productos digitales e innovación con IA.
-      </p>
-
-      <div class="contact-actions">
-        <a href="mailto:lauraac140231@gmail.com" class="btn primary">Enviar correo</a>
-
-        <a href="https://wa.me/525534633490" target="_blank" class="btn secondary">WhatsApp</a>
-
-        <a href="https://www.linkedin.com/in/tu-usuario-linkedin/" target="_blank" class="btn secondary">LinkedIn</a>
-      </div>
-    </div>
-  </section>
-  <section class="section dark" id="juego">
-    <div class="section-title reveal">
-      <p>Demo interactiva</p>
-      <h2>Mini Tetris Developer</h2>
-    </div>
-
-    <div class="game-card reveal">
-      <h2 class="tetris-title">
-        <span>T</span><span>E</span><span>T</span><span>R</span><span>I</span><span>S</span>
-      </h2>
-
-      <p class="game-intro">
-        Una mini demo interactiva para mostrar lógica, JavaScript y experiencia visual dentro de un celular.
-      </p>
-
-      <div class="phone-game">
-        <div class="phone-frame">
-          <div class="notch"></div>
-          <canvas id="tetris" width="300" height="600"></canvas>
+        <div class="hero-actions">
+          <a href="#experiencia" class="btn primary">Ver experiencia</a>
+          <a href="#juego" class="btn secondary">Jugar Tetris 🎮</a>
         </div>
       </div>
 
-      <div class="game-info">
-        <div>
-          <span id="score">0</span>
-          <small>Puntos</small>
+      <div class="hero-profile reveal">
+        <div class="photo-card">
+          <img src="assets/lau.png" alt="Foto de Laura Alfonso" />
         </div>
 
-        <div>
-          <span id="level">1</span>
-          <small>Nivel</small>
-        </div>
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="camera"></div>
 
-        <div>
-          <span id="timer">00:00</span>
-          <small>Tiempo</small>
-        </div>
+            <div class="notification">
+              <strong>🔔 Push Notification</strong>
+              <p>App inteligente conectada a servicios móviles.</p>
+            </div>
 
-        <div>
-          <span id="record">00:00</span>
-          <small>Récord</small>
-        </div>
-      </div>
+            <div class="ai-card">
+              <p>🤖 IA + Mobile</p>
+              <h3>Kotlin · Compose · APIs · TV</h3>
+            </div>
 
-      <div class="game-controls">
-        <button id="startTetris" class="start-btn">Iniciar</button>
-
-        <div class="control-pad">
-          <button id="leftTetris">←</button>
-          <button id="rotateTetris">⟳</button>
-          <button id="rightTetris">→</button>
-          <button id="downTetris">↓</button>
+            <div class="code-card">
+              <p>fun buildApp() {</p>
+              <p> createMobileExperience()</p>
+              <p> connectApis()</p>
+              <p> deliverValue()</p>
+              <p>}</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <p class="game-note">
-        Inicia lento y aumenta la velocidad conforme subes de nivel.
-      </p>
-    </div>
-  </section>
+    <!-- IMPACTO -->
+    <section class="section dark" id="impacto">
+      <div class="section-title reveal">
+        <p>Impacto profesional</p>
+        <h2>Soluciones reales en producción</h2>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card reveal">
+          <h3>📱 Apps productivas</h3>
+          <p>Desarrollo y mantenimiento de funcionalidades móviles usadas por clientes reales.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>📺 Android TV</h3>
+          <p>Implementación de flujos de bloqueo, desbloqueo, estados remotos y control de dispositivos.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>🔔 Notificaciones</h3>
+          <p>Integración de servicios móviles, comunicación con backend y experiencias conectadas.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- EXPERIENCIA -->
+    <section class="section" id="experiencia">
+      <div class="section-title reveal">
+        <p>Trayectoria profesional</p>
+        <h2>Experiencia que aporta valor real</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="job-card reveal">
+          <span class="date">Ago. 2024 - Actualidad</span>
+          <h3>Macropay · Mérida, Yucatán</h3>
+          <h4>Engineer Mobile SR</h4>
+          <ul>
+            <li>Desarrollo de aplicaciones móviles Android con Kotlin.</li>
+            <li>Creación de interfaces modernas con Jetpack Compose y XML.</li>
+            <li>Integración de APIs REST, manejo de respuestas JSON y validaciones.</li>
+            <li>Implementación de flujos para apps móviles y Android TV.</li>
+            <li>Control de dispositivos, bloqueos, desbloqueos y estados remotos.</li>
+            <li>Soporte a incidencias, análisis de errores y mejoras productivas.</li>
+            <li>Uso de Git, ramas, buenas prácticas y arquitectura escalable.</li>
+          </ul>
+        </article>
+
+        <article class="job-card reveal">
+          <span class="date">Oct. 2023 - Ago. 2024</span>
+          <h3>Servifácil</h3>
+          <h4>Engineer Mobile SR</h4>
+          <ul>
+            <li>Desarrollo móvil con Android y React Native.</li>
+            <li>Integración de servicios, APIs y consumo de información en app.</li>
+            <li>Actualización de versiones para Play Store y App Store.</li>
+            <li>Mantenimiento de funcionalidades existentes.</li>
+            <li>Uso de Postman, Firebase Analytics y herramientas de monitoreo.</li>
+          </ul>
+        </article>
+
+        <article class="job-card reveal">
+          <span class="date">Jul. 2022 - Jul. 2023</span>
+          <h3>Zubale</h3>
+          <h4>Mobile Engineer</h4>
+          <ul>
+            <li>Desarrollo mobile con React Native y TypeScript.</li>
+            <li>Automatización de flujos dentro de la app.</li>
+            <li>Creación de bots y herramientas internas.</li>
+            <li>Uso de Android Studio, Flipper, MongoDB, Looker y Slack.</li>
+          </ul>
+        </article>
+
+        <article class="job-card reveal">
+          <span class="date">Jun. 2020 - Jul. 2022</span>
+          <h3>Zubale</h3>
+          <h4>Command Center Analyst</h4>
+          <ul>
+            <li>Análisis de datos, soporte operativo y resolución de incidencias.</li>
+            <li>Bloqueos a usuarios fraudulentos y recuperación de códigos móviles.</li>
+            <li>Manipulación de datos y creación de tareas programadas.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- IA + MOBILE -->
+    <section class="section dark" id="ia">
+      <div class="section-title reveal">
+        <p>IA + Mobile</p>
+        <h2>Ideas que puedo construir</h2>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card reveal">
+          <h3>🤖 Apps con IA</h3>
+          <p>Asistentes inteligentes, respuestas automáticas y experiencias personalizadas.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>🔔 Notificaciones inteligentes</h3>
+          <p>Alertas push, recordatorios, estados y mensajes personalizados.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>📺 Android TV</h3>
+          <p>Apps para televisores, control remoto, restricciones, bloqueo y desbloqueo.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>🎮 Mini juegos</h3>
+          <p>Experiencias interactivas para mostrar lógica, JS y creatividad.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>🎉 Invitaciones digitales</h3>
+          <p>Invitaciones con música, video, animaciones, formularios y mapas.</p>
+        </article>
+
+        <article class="card reveal">
+          <h3>📊 Dashboards</h3>
+          <p>Visualización de datos, reportes y conexión con servicios externos.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+      <div class="section-title reveal">
+        <p>Stack tecnológico</p>
+        <h2>Habilidades principales</h2>
+      </div>
+
+      <div class="skills-cloud reveal">
+        <span>Kotlin</span>
+        <span>Android SDK</span>
+        <span>Jetpack Compose</span>
+        <span>XML</span>
+        <span>React Native</span>
+        <span>TypeScript</span>
+        <span>JavaScript</span>
+        <span>APIs REST</span>
+        <span>JSON</span>
+        <span>Retrofit</span>
+        <span>Firebase</span>
+        <span>Push Notifications</span>
+        <span>Android TV</span>
+        <span>MQTT</span>
+        <span>Git</span>
+        <span>GitHub</span>
+        <span>Postman</span>
+        <span>MongoDB</span>
+        <span>PostgreSQL</span>
+        <span>HTML5</span>
+        <span>CSS3</span>
+        <span>Responsive Design</span>
+        <span>Figma</span>
+        <span>Looker</span>
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section class="section dark" id="proyectos">
+      <div class="section-title reveal">
+        <p>Portafolio</p>
+        <h2>Proyectos destacados</h2>
+      </div>
+
+      <div class="cards-grid">
+        <article class="card reveal">
+          <h3>📱 App Mobile Financiera</h3>
+          <p>Funcionalidades móviles con Kotlin, APIs, arquitectura escalable y buenas prácticas.</p>
+          <span>Android · Kotlin · APIs · Compose</span>
+        </article>
+
+        <article class="card reveal">
+          <h3>📺 Sistema Android TV</h3>
+          <p>Bloqueo, desbloqueo, estados de dispositivo, control remoto y restricciones.</p>
+          <span>Android TV · Kotlin · MQTT</span>
+        </article>
+
+        <article class="card reveal">
+          <h3>🤖 Concepto App con IA</h3>
+          <p>Prototipo visual de app inteligente con notificaciones y asistente IA.</p>
+          <span>IA · Mobile · UX</span>
+        </article>
+
+        <article class="card reveal">
+          <h3>🎉 Invitaciones digitales</h3>
+          <p>Diseños interactivos con video, música, contador, galería y confirmación.</p>
+          <span>HTML · CSS · JS · Firebase</span>
+        </article>
+
+        <article class="card reveal">
+          <h3>🎮 Mini Tetris Web</h3>
+          <p>Juego interactivo con niveles, tiempo, récord y controles responsive.</p>
+          <span>JavaScript · Canvas</span>
+        </article>
+
+        <article class="card reveal">
+          <h3>🔔 Sistema de notificaciones</h3>
+          <p>Concepto de mensajes push para mantener informado al usuario desde mobile.</p>
+          <span>Firebase · Push · Mobile</span>
+        </article>
+      </div>
+    </section>
+
+    <!-- FORMACIÓN -->
+    <section class="section" id="formacion">
+      <div class="section-title reveal">
+        <p>Formación</p>
+        <h2>Educación y certificaciones</h2>
+      </div>
+
+      <div class="education-grid reveal">
+        <div>🎓 Licenciatura en Informática</div>
+        <div>🎓 Maestría en Administración y Liderazgo</div>
+        <div>📜 React Native</div>
+        <div>📜 JavaScript</div>
+        <div>📜 Python</div>
+        <div>📜 Django</div>
+        <div>📜 HTML / CSS</div>
+        <div>📜 Front-End Web Development</div>
+      </div>
+    </section>
+
+    <!-- TETRIS -->
+    <section class="section dark game-section" id="juego">
+      <div class="section-title reveal">
+        <p>Demo interactiva</p>
+        <h2>Mini Tetris Developer</h2>
+      </div>
+
+      <div class="game-card reveal">
+        <h2 class="tetris-title">
+          <span>T</span><span>E</span><span>T</span><span>R</span><span>I</span><span>S</span>
+        </h2>
+
+        <p class="game-intro">
+          Una mini demo interactiva para mostrar lógica, JavaScript y experiencia visual dentro de un celular.
+        </p>
+
+        <div class="phone-game">
+          <div class="phone-frame">
+            <div class="notch"></div>
+            <canvas id="tetris" width="300" height="600"></canvas>
+          </div>
+        </div>
+
+        <div class="game-info">
+          <div><span id="score">0</span><small>Puntos</small></div>
+          <div><span id="level">1</span><small>Nivel</small></div>
+          <div><span id="timer">00:00</span><small>Tiempo</small></div>
+          <div><span id="record">00:00</span><small>Récord</small></div>
+        </div>
+
+        <div class="game-controls">
+          <button id="startTetris" class="start-btn">Iniciar</button>
+
+          <div class="control-pad">
+            <button id="leftTetris">←</button>
+            <button id="rotateTetris">⟳</button>
+            <button id="rightTetris">→</button>
+            <button id="downTetris">↓</button>
+          </div>
+        </div>
+
+        <p class="game-note">Inicia lento y aumenta la velocidad conforme subes de nivel.</p>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact section" id="contacto">
+      <div class="contact-box reveal">
+        <h2>¿Quieres trabajar conmigo?</h2>
+        <p>
+          Estoy abierta a nuevas oportunidades como Mobile Developer SR,
+          especialmente en proyectos Android, React Native, Android TV,
+          APIs, productos digitales e innovación con IA.
+        </p>
+
+        <div class="contact-actions">
+          <a href="mailto:lauraac140231@gmail.com" class="btn primary">Enviar correo</a>
+          <a href="https://wa.me/525534633490" target="_blank" class="btn secondary">WhatsApp</a>
+          <a href="https://www.linkedin.com/in/tu-usuario-linkedin/" target="_blank" class="btn secondary">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <p>© 2026 Laura Alfonso · Mobile Developer SR</p>
   </footer>
