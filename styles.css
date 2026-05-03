@@ -759,8 +759,11 @@ footer {
     flex-direction: column;
   }
 }
-
 @media (max-width: 760px) {
+  body {
+    padding-top: 70px;
+  }
+
   .header {
     padding: 16px 6%;
   }
@@ -788,11 +791,26 @@ footer {
   }
 
   .hero-video {
-    min-height: 100svh;
+    min-height: auto;
+    padding-bottom: 30px;
   }
 
-  .hero-video-main {
-    object-fit: contain;
+  .video-overlay {
+    text-align: center;
+    padding: 90px 6% 30px;
+    max-width: none;
+    align-self: flex-start;
+  }
+
+  .video-overlay h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .hero-text,
+  .hero-info p {
+    font-size: 14px;
+    margin-top: 12px;
   }
 
   .hero-video-shadow {
@@ -804,29 +822,23 @@ footer {
     );
   }
 
-  .video-overlay {
-    text-align: center;
-    padding: 105px 6% 40px;
-    max-width: none;
-    align-self: flex-start;
-  }
-
-  .video-overlay h1 {
-    font-size: 30px;
-  }
-
-  .hero-text,
-  .hero-info p {
-    font-size: 15.5px;
-  }
-
   .section {
-    padding: 75px 6%;
+    padding: 55px 6%;
   }
 
   .cards-grid,
   .education-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-intro {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    justify-content: center;
   }
 
   .phone {
@@ -844,7 +856,8 @@ footer {
   }
 
   .game-section {
-    padding: 72px 4% 25px;
+    min-height: auto;
+    padding: 55px 4% 24px;
   }
 
   .game-section .section-title {
@@ -856,18 +869,20 @@ footer {
   }
 
   .game-section .section-title h2 {
-    font-size: 24px;
+    font-size: 26px;
+    line-height: 1.1;
   }
 
   .game-card {
-    max-width: 340px;
-    padding: 12px;
+    max-width: 330px;
+    padding: 14px 12px;
+    border-radius: 24px;
   }
 
   .tetris-title {
-    font-size: 34px;
+    font-size: 32px;
     letter-spacing: 3px;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   .game-intro {
@@ -875,27 +890,43 @@ footer {
   }
 
   .phone-frame {
-    width: 230px;
+    width: 190px;
     height: auto;
     min-height: 0;
+    padding: 7px;
+    border-radius: 24px;
+  }
+
+  .notch {
+    width: 62px;
+    height: 6px;
+    margin-bottom: 7px;
+  }
+
+  #tetris {
+    width: 100%;
+    aspect-ratio: 1 / 2;
+    height: auto;
+    border-radius: 12px;
   }
 
   .game-info {
-    gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
     margin-top: 8px;
   }
 
   .game-info div {
-    padding: 5px 2px;
-    border-radius: 10px;
+    padding: 4px 2px;
+    border-radius: 9px;
   }
 
   .game-info span {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .game-info small {
-    font-size: 8px;
+    font-size: 7px;
   }
 
   .control-pad {
@@ -903,128 +934,46 @@ footer {
   }
 
   .start-btn {
-    max-width: 145px;
+    max-width: 150px;
     padding: 9px 14px;
-    margin-bottom: 0;
-    font-size: 13px;
+    margin: 8px auto 0;
+    font-size: 14px;
   }
 
   .game-note {
-    font-size: 11px;
-    margin-top: 7px;
+    font-size: 10px;
+    line-height: 1.3;
+    margin-top: 6px;
   }
 
   .game-note::after {
-    content: " Toca para girar. Desliza para mover.";
+    content: " Toca para girar. Desliza para mover o bajar.";
     color: #ff9acb;
   }
 }
 
 @media (max-width: 420px) {
+  .logo {
+    font-size: 26px;
+  }
+
   .video-overlay h1 {
-    font-size: 27px;
+    font-size: 26px;
   }
 
   .tag {
     font-size: 12px;
   }
 
+  .game-card {
+    max-width: 315px;
+  }
+
+  .phone-frame {
+    width: 180px;
+  }
+
   .tetris-title {
-    font-size: 32px;
-  }
-}
-@media (max-width: 760px) {
-  .game-section {
-    min-height: auto;
-    padding: 90px 4% 35px;
-  }
-
-  .game-section .section-title {
-    margin-bottom: 14px;
-  }
-
-  .game-section .section-title h2 {
     font-size: 30px;
-    line-height: 1.1;
-  }
-
-  .game-card {
-    max-width: 360px;
-    padding: 16px 14px;
-    border-radius: 28px;
-  }
-
-  .tetris-title {
-    font-size: 36px;
-    letter-spacing: 4px;
-    margin-bottom: 12px;
-  }
-
-  .phone-frame {
-    width: 220px;
-    height: auto;
-    min-height: 0;
-    padding: 8px;
-    border-radius: 26px;
-  }
-
-  .notch {
-    width: 70px;
-    height: 7px;
-    margin-bottom: 8px;
-  }
-
-  #tetris {
-    width: 100%;
-    aspect-ratio: 1 / 2;
-    height: auto;
-    border-radius: 14px;
-  }
-
-  .game-info {
-    position: relative;
-    z-index: 2;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-    margin-top: 10px;
-  }
-
-  .game-info div {
-    padding: 5px 2px;
-    border-radius: 10px;
-  }
-
-  .game-info span {
-    font-size: 12px;
-  }
-
-  .game-info small {
-    font-size: 8px;
-  }
-
-  .start-btn {
-    max-width: 180px;
-    padding: 11px 16px;
-    margin-top: 8px;
-    font-size: 16px;
-  }
-
-  .game-note {
-    font-size: 10px;
-    line-height: 1.3;
-  }
-}
-
-@media (max-width: 420px) {
-  .game-card {
-    max-width: 330px;
-  }
-
-  .phone-frame {
-    width: 200px;
-  }
-
-  .tetris-title {
-    font-size: 32px;
   }
 }
