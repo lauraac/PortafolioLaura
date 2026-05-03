@@ -792,34 +792,65 @@ footer {
 
   .hero-video {
     min-height: auto;
-    padding-bottom: 30px;
+    display: block;
+    padding-bottom: 35px;
+    background: #070b16;
+  }
+
+  .hero-video-bg,
+  .hero-video-shadow {
+    display: none;
+  }
+
+  .hero-video-main {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    z-index: 1;
   }
 
   .video-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 92%;
+    margin: -35px auto 0;
+    padding: 24px 18px;
     text-align: center;
-    padding: 90px 6% 30px;
-    max-width: none;
-    align-self: flex-start;
+    border-radius: 28px;
+    background: rgba(7, 11, 22, 0.88);
+    border: 1px solid rgba(255, 0, 127, 0.28);
+    box-shadow: 0 0 35px rgba(255, 0, 127, 0.18);
+    backdrop-filter: blur(14px);
+  }
+
+  .video-overlay .tag {
+    font-size: 11px;
+    padding: 8px 12px;
+    margin-bottom: 12px;
   }
 
   .video-overlay h1 {
-    font-size: 28px;
-    line-height: 1.2;
+    font-size: 25px;
+    line-height: 1.15;
   }
 
-  .hero-text,
+  .video-overlay .hero-text,
   .hero-info p {
     font-size: 14px;
+    line-height: 1.55;
     margin-top: 12px;
   }
 
-  .hero-video-shadow {
-    background: linear-gradient(
-      180deg,
-      rgba(7, 11, 22, 0.58) 0%,
-      rgba(7, 11, 22, 0.35) 45%,
-      rgba(7, 11, 22, 0.72) 100%
-    );
+  .video-overlay .hero-actions {
+    margin-top: 18px;
+    gap: 10px;
+  }
+
+  .video-overlay .btn,
+  .btn {
+    width: 100%;
   }
 
   .section {
@@ -849,10 +880,6 @@ footer {
   .photo-card {
     width: 180px;
     height: 180px;
-  }
-
-  .btn {
-    width: 100%;
   }
 
   .game-section {
