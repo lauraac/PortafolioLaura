@@ -2,15 +2,17 @@ const menuBtn = document.getElementById("menuBtn");
 const nav = document.getElementById("nav");
 const topBtn = document.getElementById("topBtn");
 
-menuBtn.addEventListener("click", () => {
-  nav.classList.toggle("active");
-});
-
-document.querySelectorAll(".nav a").forEach((link) => {
-  link.addEventListener("click", () => {
-    nav.classList.remove("active");
+if (menuBtn && nav) {
+  menuBtn.addEventListener("click", () => {
+    nav.classList.toggle("active");
   });
-});
+
+  document.querySelectorAll(".nav a").forEach((link) => {
+    link.addEventListener("click", () => {
+      nav.classList.remove("active");
+    });
+  });
+}
 
 const reveals = document.querySelectorAll(".reveal");
 
@@ -24,18 +26,21 @@ function revealOnScroll() {
     }
   });
 
-  topBtn.style.display = window.scrollY > 500 ? "block" : "none";
+  if (topBtn) {
+    topBtn.style.display = window.scrollY > 500 ? "block" : "none";
+  }
 }
 
 window.addEventListener("scroll", revealOnScroll);
 window.addEventListener("load", revealOnScroll);
 
-topBtn.addEventListener("click", () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
+if (topBtn) {
+  topBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
-});
+}
+
+/* TETRIS */
 const tetrisCanvas = document.getElementById("tetris");
 
 if (tetrisCanvas) {
@@ -61,6 +66,7 @@ if (tetrisCanvas) {
     "#ff2bd6",
     "#8b5cf6",
   ];
+
   const pieces = {
     T: [
       [0, 1, 0],
@@ -99,8 +105,8 @@ if (tetrisCanvas) {
     ],
   };
 
-  let board;
-  let player;
+  let board = createBoard();
+  let player = randomPiece();
   let score = 0;
   let level = 1;
   let dropCounter = 0;
@@ -111,13 +117,6 @@ if (tetrisCanvas) {
   let elapsedSeconds = 0;
   let recordSeconds = Number(localStorage.getItem("tetrisRecord")) || 0;
 
-  function formatTime(seconds) {
-    const min = Math.floor(seconds / 60)
-      .toString()
-      .padStart(2, "0");
-    const sec = (seconds % 60).toString().padStart(2, "0");
-    return `${min}:${sec}`;
-  }
   function createBoard() {
     return Array.from({ length: ROWS }, () => Array(COLS).fill(0));
   }
@@ -133,6 +132,14 @@ if (tetrisCanvas) {
         y: 0,
       },
     };
+  }
+
+  function formatTime(seconds) {
+    const min = Math.floor(seconds / 60)
+      .toString()
+      .padStart(2, "0");
+    const sec = (seconds % 60).toString().padStart(2, "0");
+    return `${min}:${sec}`;
   }
 
   function drawMatrix(matrix, offset) {
@@ -173,15 +180,15 @@ if (tetrisCanvas) {
     drawMatrix(player.matrix, player.pos);
   }
 
-  function collide(board, player) {
-    const matrix = player.matrix;
-    const pos = player.pos;
+  function collide(currentBoard, currentPlayer) {
+    const matrix = currentPlayer.matrix;
+    const pos = currentPlayer.pos;
 
     for (let y = 0; y < matrix.length; y++) {
       for (let x = 0; x < matrix[y].length; x++) {
         if (
           matrix[y][x] !== 0 &&
-          (board[y + pos.y] && board[y + pos.y][x + pos.x]) !== 0
+          (currentBoard[y + pos.y] && currentBoard[y + pos.y][x + pos.x]) !== 0
         ) {
           return true;
         }
@@ -191,11 +198,12 @@ if (tetrisCanvas) {
     return false;
   }
 
-  function merge(board, player) {
-    player.matrix.forEach((row, y) => {
+  function merge(currentBoard, currentPlayer) {
+    currentPlayer.matrix.forEach((row, y) => {
       row.forEach((value, x) => {
         if (value !== 0) {
-          board[y + player.pos.y][x + player.pos.x] = value;
+          currentBoard[y + currentPlayer.pos.y][x + currentPlayer.pos.x] =
+            value;
         }
       });
     });
@@ -218,7 +226,6 @@ if (tetrisCanvas) {
     if (lines > 0) {
       score += lines * 100;
       level = Math.floor(score / 400) + 1;
-
       dropInterval = Math.max(150, 900 - (level - 1) * 90);
 
       scoreEl.textContent = score;
@@ -227,31 +234,37 @@ if (tetrisCanvas) {
   }
 
   function rotate(matrix) {
-    const rotated = matrix[0].map((_, i) =>
-      matrix.map((row) => row[i]).reverse(),
-    );
-
-    return rotated;
+    return matrix[0].map((_, i) => matrix.map((row) => row[i]).reverse());
   }
 
   function playerRotate() {
+    if (!playing) return;
+
     const original = player.matrix;
     player.matrix = rotate(player.matrix);
 
     if (collide(board, player)) {
       player.matrix = original;
     }
+
+    draw();
   }
 
   function playerMove(direction) {
+    if (!playing) return;
+
     player.pos.x += direction;
 
     if (collide(board, player)) {
       player.pos.x -= direction;
     }
+
+    draw();
   }
 
   function playerDrop() {
+    if (!playing) return;
+
     player.pos.y++;
 
     if (collide(board, player)) {
@@ -264,10 +277,35 @@ if (tetrisCanvas) {
       if (collide(board, player)) {
         playing = false;
         drawGameOver();
+        return;
       }
     }
 
     dropCounter = 0;
+    draw();
+  }
+
+  function hardDrop() {
+    if (!playing) return;
+
+    while (!collide(board, player)) {
+      player.pos.y++;
+    }
+
+    player.pos.y--;
+    merge(board, player);
+    clearLines();
+
+    player = randomPiece();
+
+    if (collide(board, player)) {
+      playing = false;
+      drawGameOver();
+      return;
+    }
+
+    dropCounter = 0;
+    draw();
   }
 
   function drawGameOver() {
@@ -281,19 +319,16 @@ if (tetrisCanvas) {
     ctx.fillStyle = "rgba(0,0,0,.85)";
     ctx.fillRect(0, 0, COLS, ROWS);
 
-    // TEXTO GRANDE
     ctx.fillStyle = "#ff4fa3";
-    ctx.font = "1px Arial"; // 🔥 IMPORTANTE (escala canvas)
+    ctx.font = "1px Arial";
     ctx.textAlign = "center";
     ctx.fillText("PERDISTE 😢", COLS / 2, 8);
 
-    // TEXTO MEDIO
     ctx.fillStyle = "white";
     ctx.font = "0.6px Arial";
     ctx.fillText(`Tiempo: ${formatTime(elapsedSeconds)}`, COLS / 2, 10);
     ctx.fillText(`Récord: ${formatTime(recordSeconds)}`, COLS / 2, 11);
 
-    // TEXTO PEQUEÑO
     ctx.fillStyle = "#94a3b8";
     ctx.font = "0.45px Arial";
     ctx.fillText("Presiona INICIAR para volver", COLS / 2, 13);
@@ -309,8 +344,10 @@ if (tetrisCanvas) {
     if (dropCounter > dropInterval) {
       playerDrop();
     }
+
     elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
     timerEl.textContent = formatTime(elapsedSeconds);
+
     draw();
     requestAnimationFrame(update);
   }
@@ -318,22 +355,23 @@ if (tetrisCanvas) {
   function startTetris() {
     board = createBoard();
     player = randomPiece();
+
     score = 0;
     level = 1;
     dropInterval = 900;
     dropCounter = 0;
     lastTime = 0;
+    startTime = Date.now();
+    elapsedSeconds = 0;
     playing = true;
 
     scoreEl.textContent = score;
     levelEl.textContent = level;
-
-    startTime = Date.now();
-    elapsedSeconds = 0;
     timerEl.textContent = "00:00";
     recordEl.textContent = formatTime(recordSeconds);
 
-    update();
+    draw();
+    requestAnimationFrame(update);
   }
 
   document
@@ -350,34 +388,85 @@ if (tetrisCanvas) {
     ?.addEventListener("click", playerRotate);
   document.getElementById("downTetris")?.addEventListener("click", playerDrop);
 
-  window.addEventListener("keydown", (e) => {
+  window.addEventListener("keydown", (event) => {
     if (!playing) return;
 
-    if (e.key === "ArrowLeft") playerMove(-1);
-    if (e.key === "ArrowRight") playerMove(1);
-    if (e.key === "ArrowDown") playerDrop();
-    if (e.key === "ArrowUp") playerRotate();
+    if (event.key === "ArrowLeft") playerMove(-1);
+    if (event.key === "ArrowRight") playerMove(1);
+    if (event.key === "ArrowDown") playerDrop();
+    if (event.key === "ArrowUp") playerRotate();
+    if (event.code === "Space") hardDrop();
   });
 
-  board = createBoard();
-  player = randomPiece();
+  /* TOUCH MOBILE - seguro */
+  const touchArea = document.querySelector(".phone-frame");
+
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchStartTime = 0;
+
+  if (touchArea) {
+    touchArea.addEventListener(
+      "pointerdown",
+      (event) => {
+        if (!playing) return;
+
+        event.preventDefault();
+
+        touchStartX = event.clientX;
+        touchStartY = event.clientY;
+        touchStartTime = Date.now();
+      },
+      { passive: false },
+    );
+
+    touchArea.addEventListener(
+      "pointerup",
+      (event) => {
+        if (!playing) return;
+
+        event.preventDefault();
+
+        const diffX = event.clientX - touchStartX;
+        const diffY = event.clientY - touchStartY;
+        const elapsed = Date.now() - touchStartTime;
+
+        const absX = Math.abs(diffX);
+        const absY = Math.abs(diffY);
+
+        const isTap = absX < 20 && absY < 20 && elapsed < 350;
+
+        // Tap = girar
+        if (isTap) {
+          playerRotate();
+          return;
+        }
+
+        // Deslizar abajo = bajar rápido
+        if (absY > absX && diffY > 35) {
+          if (diffY > 120) {
+            hardDrop();
+          } else {
+            playerDrop();
+            playerDrop();
+            playerDrop();
+          }
+          return;
+        }
+
+        // Deslizar lados = mover
+        if (absX > absY && absX > 30) {
+          if (diffX > 0) {
+            playerMove(1);
+          } else {
+            playerMove(-1);
+          }
+        }
+      },
+      { passive: false },
+    );
+  }
   recordEl.textContent = formatTime(recordSeconds);
   timerEl.textContent = "00:00";
   draw();
-}
-
-const hero3d = document.querySelector(".hero-3d");
-const heroImg = document.getElementById("hero3dImg");
-
-if (hero3d && heroImg) {
-  hero3d.addEventListener("mousemove", (e) => {
-    const x = (e.clientX / window.innerWidth - 0.5) * 18;
-    const y = (e.clientY / window.innerHeight - 0.5) * 18;
-
-    heroImg.style.transform = `scale(1.12) translate(${x}px, ${y}px)`;
-  });
-
-  hero3d.addEventListener("mouseleave", () => {
-    heroImg.style.transform = "scale(1.08) translate(0, 0)";
-  });
 }
